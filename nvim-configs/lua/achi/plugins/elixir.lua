@@ -7,6 +7,7 @@ return {
 
 		elixir.setup({
 			nextls = { enable = false },
+			credo = {},
 			elixirls = {
 				enable = true,
 				cmd = "C:/Users/Achi/AppData/Local/nvim-data/mason/bin/elixir-ls.cmd",
@@ -15,11 +16,11 @@ return {
 					enableTestLenses = false,
 				}),
 				on_attach = function(client, bufnr)
-					vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-					vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-					vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
+					vim.keymap.set("n", "<leader>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
+					vim.keymap.set("n", "<leader>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
+					vim.keymap.set("v", "<leader>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
 
-					require("achi.plugins.lsp").on_attach(client, bufnr)
+					--require("achi.plugins.lsp").on_attach(client, bufnr)
 				end,
 			},
 		})

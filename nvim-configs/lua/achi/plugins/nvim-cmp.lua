@@ -40,8 +40,8 @@ return {
 			},
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
-					--luasnip.lsp_expand(args.body)
-					vim.snippet.expand(args.body)
+					require("luasnip").lsp_expand(args.body)
+					--vim.snippet.expand(args.body)
 				end,
 			},
 			--			window = {
