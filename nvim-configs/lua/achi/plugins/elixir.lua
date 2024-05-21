@@ -9,7 +9,7 @@ return {
 			nextls = { enable = false },
 			credo = {},
 			elixirls = {
-				enable = true,
+				enable = false,
 				cmd = "C:/Users/Achi/AppData/Local/nvim-data/mason/bin/elixir-ls.cmd",
 				settings = elixirls.settings({
 					dialyzerEnabled = false,
@@ -20,7 +20,7 @@ return {
 					vim.keymap.set("n", "<leader>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
 					vim.keymap.set("v", "<leader>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
 
-					--require("achi.plugins.lsp").on_attach(client, bufnr)
+					require("./lsp/lspconfig").on_attach(client, bufnr)
 				end,
 			},
 		})

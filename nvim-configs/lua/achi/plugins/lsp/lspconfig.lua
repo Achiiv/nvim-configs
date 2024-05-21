@@ -88,6 +88,9 @@ return {
 			["elixirls"] = function()
 				lspconfig["elixirls"].setup({
 					cmd = { "C:/Users/Achi/AppData/Local/nvim-data/mason/bin/elixir-ls.cmd" },
+					autostart = true,
+					dialyzerEnabled = false,
+					enableTestLenses = false,
 					capabilities = capabilities,
 				})
 			end,

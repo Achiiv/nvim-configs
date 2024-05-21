@@ -19,6 +19,31 @@ return {
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
 		local cmp_tailwind = require("tailwindcss-colorizer-cmp")
+		local ls = require("luasnip")
+
+		ls.config.set_config({
+			history = false,
+			updateevents = "TextChanged,TextChangedI",
+			override_buildin = true,
+		})
+
+		for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/achi/snippets/*.lua", true)) do
+			loadfile(ft_path)()
+		end
+
+		-- when luasnip gives snippet, c-k allow us to move to next "position" the snippet defines
+		vim.keymap.set({ "i", "s" }, "<C-k>", function()
+			if ls.expand_or_jumpable() then
+				ls.expand_or_jump()
+			end
+		end, { silent = true })
+
+		-- when luasnip gives snippet, c-k allow us to move to prev "position" the snippet defines
+		vim.keymap.set({ "i", "s" }, "<C-j>", function()
+			if ls.jumpable(-1) then
+				ls.jump(-1)
+			end
+		end, { silent = true })
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -44,10 +69,10 @@ return {
 					--vim.snippet.expand(args.body)
 				end,
 			},
-			--			window = {
-			--				completion = cmp.config.window.bordered(),
-			--				documentation = cmp.config.window.bordered(),
-			--			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 			view = {
 				entries = {
 					name = "custom",
@@ -56,8 +81,8 @@ return {
 				},
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+				["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+				["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions

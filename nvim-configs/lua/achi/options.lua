@@ -15,6 +15,8 @@ opt.autoindent = true
 
 opt.wrap = false
 
+opt.inccommand = "split"
+
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
