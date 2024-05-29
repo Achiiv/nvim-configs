@@ -9,10 +9,10 @@ end
 local overrides = function(colors)
 	local p = colors.palette
 	return {
-		String = {
-			fg = p.springGreen,
-			italic = false,
-		},
+		-- String = {
+		-- 	fg = p.springGreen,
+		-- 	italic = false,
+		-- },
 		Function = {
 			fg = p.crystalBlue,
 			italic = false,

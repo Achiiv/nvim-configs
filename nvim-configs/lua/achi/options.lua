@@ -13,7 +13,10 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 
-opt.wrap = false
+opt.wrap = true
+opt.showbreak = "↪"
+opt.breakindent = true
+opt.breakindentopt = "shift:2"
 
 opt.inccommand = "split"
 

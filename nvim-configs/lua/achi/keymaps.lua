@@ -15,6 +15,11 @@ keymap.set("n", "<C-k>", "<C-w>k", { desc = "move cursor up split" })
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "move cursor left split" })
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "move cursor right split" })
 
+map("n", "<C-Left>", "<Esc>:vertical resize -5<CR>", options)
+map("n", "<C-Right>", "<Esc>:vertical resize +5<CR>", options)
+map("n", "<C-Up>", "<Esc>:resize -5<CR>", options)
+map("n", "<C-Down>", "<Esc>:resize +5<CR>", options)
+
 map("i", "<C-j>", "<Esc>:m .+1<CR>a", options)
 map("i", "<C-k>", "<Esc>:m .-2<CR>a", options)
 map("v", "<C-j>", ":m '>+1<CR>gv=gv", options)
