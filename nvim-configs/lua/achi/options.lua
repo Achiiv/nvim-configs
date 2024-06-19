@@ -6,14 +6,14 @@ vim.o.guicursor = "n-v-c-sm-i-ci-ve:block"
 
 opt.relativenumber = true
 opt.number = true
-opt.so = 999
+opt.so = 10
 
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 
-opt.wrap = true
+opt.wrap = false
 opt.showbreak = "↪"
 opt.breakindent = true
 opt.breakindentopt = "shift:2"
