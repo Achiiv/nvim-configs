@@ -1,5 +1,7 @@
 vim.cmd("language en_US")
 
+vim.loader.enable()
+
 local opt = vim.opt
 
 vim.o.guicursor = "n-v-c-sm-i-ci-ve:block"
