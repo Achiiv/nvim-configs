@@ -13,6 +13,10 @@ local config = function()
 		},
 		should_enable = function()
 			local exclude = { "nofile" }
+			local m = vim.api.nvim_get_mode()["mode"]
+			if m == "v" then
+				return false
+			end
 			return not vim.tbl_contains(exclude, vim.bo.buftype)
 		end,
 		filetypes_allowlist = {},

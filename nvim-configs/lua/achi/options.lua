@@ -4,7 +4,8 @@ vim.loader.enable()
 
 local opt = vim.opt
 
-vim.o.guicursor = "n-v-c-sm-i-ci-ve:block"
+--vim.o.guicursor = "n-v-c-sm-i-ci-ve:block"
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 
 opt.relativenumber = true
 opt.number = true
